@@ -1,0 +1,1694 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>湘｜Medical Education Portfolio</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background: #fffaf7;
+    color: #4a4542;
+}
+
+/* =========================
+   導覽列
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(255,250,247,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #f0dfd6;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    color: #765548;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #d99a7c;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #69564e;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #c27e63;
+}
+
+/* =========================
+   共用
+========================= */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 25px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    margin: 0;
+    color: #654d43;
+    font-size: 30px;
+}
+
+.section-title p {
+    color: #93847d;
+    margin-top: 10px;
+}
+
+/* =========================
+   首頁 Hero
+========================= */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #fff0e8,
+        #fff9f5
+    );
+
+    padding: 90px 25px;
+}
+
+.hero-content {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-small {
+    color: #c1836c;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin: 0;
+    color: #59483f;
+}
+
+.hero h1 span {
+    color: #c98569;
+}
+
+.hero-subtitle {
+    font-size: 21px;
+    color: #8c685a;
+    margin: 20px 0;
+}
+
+.hero-text {
+    line-height: 1.9;
+    color: #6f6560;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.btn-main {
+    background: #b9826d;
+    color: white;
+}
+
+.btn-main:hover {
+    background: #986551;
+    transform: translateY(-2px);
+}
+
+.btn-light {
+    background: white;
+    color: #9b6d5a;
+    border: 1px solid #e9c9ba;
+}
+
+.btn-light:hover {
+    background: #fff4ee;
+}
+
+/* 個人照片 */
+
+.hero-photo {
+    width: 300px;
+    height: 300px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    background: #f3d8ca;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #a37866;
+
+    font-size: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 40px rgba(120,90,70,0.12);
+}
+
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================
+   關於我
+========================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.about-card {
+    background: white;
+    padding: 30px;
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow:
+        0 6px 20px rgba(120,90,70,0.07);
+
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.about-card h3 {
+    color: #6c5147;
+}
+
+.about-card p {
+    color: #777;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* =========================
+   方向
+========================= */
+
+.direction {
+    background: #fff4ee;
+}
+
+.direction-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.direction-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+
+    border-left: 5px solid #d89a7c;
+}
+
+.direction-card h3 {
+    color: #725448;
+}
+
+.direction-card p {
+    color: #777;
+    line-height: 1.8;
+}
+
+/* =========================
+   作品集
+========================= */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 22px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 6px 20px rgba(120,90,70,0.07);
+
+    transition: 0.3s;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+}
+
+.project-number {
+    color: #d99a7c;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.project-card h3 {
+    color: #654d43;
+    margin: 10px 0;
+}
+
+.project-card p {
+    color: #777;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.project-tags {
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+.project-tag {
+    display: inline-block;
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    background: #fff2eb;
+    color: #a66f5b;
+
+    font-size: 12px;
+
+    margin: 3px;
+}
+
+/* =========================
+   學習歷程
+========================= */
+
+.timeline {
+    max-width: 800px;
+    margin: auto;
+}
+
+.timeline-item {
+    background: white;
+
+    padding: 25px 30px;
+
+    margin-bottom: 20px;
+
+    border-radius: 20px;
+
+    border-left: 4px solid #d99a7c;
+
+    box-shadow:
+        0 5px 18px rgba(120,90,70,0.06);
+}
+
+.timeline-item span {
+    color: #c1836c;
+    font-size: 13px;
+}
+
+.timeline-item h3 {
+    color: #6d5147;
+    margin: 8px 0;
+}
+
+.timeline-item p {
+    color: #777;
+    line-height: 1.8;
+}
+
+/* =========================
+   交流區
+========================= */
+
+.community {
+    background: #fff4ee;
+}
+
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+}
+
+.community-card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 5px 18px rgba(120,90,70,0.06);
+}
+
+.community-card h3 {
+    color: #654d43;
+}
+
+.community-card p {
+    color: #777;
+    line-height: 1.8;
+}
+
+.community-meta {
+    color: #b47d68;
+    font-size: 13px;
+}
+
+/* =========================
+   留言板
+========================= */
+
+.guestbook {
+    max-width: 800px;
+    margin: auto;
+}
+
+.guestbook-box {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 5px 20px rgba(120,90,70,0.07);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #765548;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid #ead8d0;
+
+    border-radius: 12px;
+
+    padding: 12px;
+
+    font-family: inherit;
+
+    background: #fffaf7;
+
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #d59b82;
+}
+
+.submit-btn {
+    border: none;
+
+    background: #b9826d;
+
+    color: white;
+
+    padding: 12px 25px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background: #986551;
+}
+
+.messages {
+    margin-top: 30px;
+}
+
+.message {
+    background: #fff5ef;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+}
+
+.message-name {
+    color: #79594d;
+    font-weight: bold;
+}
+
+.message-date {
+    color: #a99289;
+    font-size: 12px;
+}
+
+.message-text {
+    margin-top: 8px;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* =========================
+   聯絡我
+========================= */
+
+.contact {
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7e3da,
+            #fff5ef
+        );
+
+    border-radius: 28px;
+
+    padding: 50px 25px;
+}
+
+.contact h2 {
+    color: #654d43;
+}
+
+.contact p {
+    color: #756c68;
+    line-height: 1.8;
+}
+
+.contact-links {
+    margin-top: 25px;
+}
+
+.contact-links a {
+    display: inline-block;
+
+    margin: 5px;
+
+    padding: 10px 18px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    color: #9b6d5a;
+
+    text-decoration: none;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #a18f87;
+
+    font-size: 13px;
+}
+
+/* =========================
+   手機版
+========================= */
+
+@media (max-width: 800px) {
+
+    .nav-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-photo {
+        width: 220px;
+        height: 220px;
+    }
+
+    .about-grid,
+    .direction-grid,
+    .projects,
+    .community-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 55px 18px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     導覽列
+========================= -->
+
+<nav class="navbar">
+
+<div class="nav-container">
+
+<a href="#home" class="logo">
+湘 <span>✦</span>
+</a>
+
+<div class="nav-links">
+
+<a href="#home">首頁</a>
+
+<a href="#about">關於我</a>
+
+<a href="#projects">作品集</a>
+
+<a href="#journey">學習歷程</a>
+
+<a href="#community">交流區</a>
+
+<a href="#guestbook">留言板</a>
+
+<a href="#contact">聯絡我</a>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- =========================
+     首頁
+========================= -->
+
+<section id="home" class="hero">
+
+<div class="hero-content">
+
+<div>
+
+<div class="hero-small">
+MEDICAL EDUCATION · DIGITAL LEARNING
+</div>
+
+<h1>
+嗨，我是 <span>湘。</span>
+</h1>
+
+<div class="hero-subtitle">
+醫療教育 × 數位學習 × 創意設計
+</div>
+
+<p class="hero-text">
+
+歡迎來到我的個人網站！
+
+我喜歡把醫療、教育與數位科技結合，
+將課堂上的知識轉化成更容易理解、
+更有趣，也更有溫度的內容。
+
+這裡會記錄我的學習歷程、
+專題作品、數位教材以及一些生活與學習想法。
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#projects" class="btn btn-main">
+查看作品
+</a>
+
+<a href="#about" class="btn btn-light">
+認識我
+</a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<div class="hero-photo">
+
+<!--
+如果要放自己的照片：
+
+把下面這行取消註解
+
+<img src="你的照片網址" alt="湘的個人照片">
+
+-->
+
+我的照片
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     關於我
+========================= -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>關於我</h2>
+
+<p>About Me</p>
+
+</div>
+
+
+<div class="about-grid">
+
+
+<div class="about-card">
+
+<div class="about-icon">
+🩺
+</div>
+
+<h3>
+醫療 × 教育
+</h3>
+
+<p>
+
+對醫療與健康教育有興趣，
+希望透過教育設計，
+讓健康知識變得更容易理解。
+
+</p>
+
+</div>
+
+
+
+<div class="about-card">
+
+<div class="about-icon">
+💡
+</div>
+
+<h3>
+喜歡創作
+</h3>
+
+<p>
+
+喜歡嘗試簡報、網站、
+數位教材與互動活動，
+把課堂所學轉化成自己的作品。
+
+</p>
+
+</div>
+
+
+
+<div class="about-card">
+
+<div class="about-icon">
+🌷
+</div>
+
+<h3>
+細心學習
+</h3>
+
+<p>
+
+做事情比較小心仔細，
+也喜歡反覆調整細節，
+希望讓每一次作品都越來越完整。
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     我的方向
+========================= -->
+
+<section class="direction">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>我的方向</h2>
+
+<p>What I Love</p>
+
+</div>
+
+
+<div class="direction-grid">
+
+
+<div class="direction-card">
+
+<h3>
+🩺 醫療教育
+</h3>
+
+<p>
+
+將醫療與健康知識，
+轉化成適合不同學習者理解的教材與內容。
+
+</p>
+
+</div>
+
+
+<div class="direction-card">
+
+<h3>
+💻 數位學習
+</h3>
+
+<p>
+
+探索 Moodle、H5P、
+Google Sites 等工具，
+設計互動式學習體驗。
+
+</p>
+
+</div>
+
+
+<div class="direction-card">
+
+<h3>
+🎨 創意設計
+</h3>
+
+<p>
+
+喜歡將視覺設計、
+簡報與互動元素加入學習內容，
+讓作品更有特色。
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     作品集
+========================= -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>我的作品集</h2>
+
+<p>Selected Projects</p>
+
+</div>
+
+
+<div class="projects">
+
+
+<!-- 作品 01 -->
+
+<div class="project-card">
+
+<div class="project-number">
+PROJECT 01
+</div>
+
+<h3>
+🩸 一鍵式止血帶
+</h3>
+
+<p>
+
+結合止血帶與手臂支撐設計，
+希望改善抽血過程中的使用體驗，
+並降低操作上的不便。
+
+</p>
+
+<div class="project-tags">
+
+<span class="project-tag">
+醫療創新
+</span>
+
+<span class="project-tag">
+產品設計
+</span>
+
+<span class="project-tag">
+SDGs
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- 作品 02 -->
+
+<div class="project-card">
+
+<div class="project-number">
+PROJECT 02
+</div>
+
+<h3>
+💗 SEL 情緒學堂
+</h3>
+
+<p>
+
+以國小中高年級學生為對象，
+結合 SEL、ARCS 與 Gagné，
+設計數位情緒學習課程。
+
+</p>
+
+<div class="project-tags">
+
+<span class="project-tag">
+SEL
+</span>
+
+<span class="project-tag">
+Moodle
+</span>
+
+<span class="project-tag">
+H5P
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- 作品 03 -->
+
+<div class="project-card">
+
+<div class="project-number">
+PROJECT 03
+</div>
+
+<h3>
+👀 國小護眼衛教
+</h3>
+
+<p>
+
+針對國小學生設計護眼教育內容，
+從 3C 使用、閱讀習慣等面向，
+建立正確的眼睛保健觀念。
+
+</p>
+
+<div class="project-tags">
+
+<span class="project-tag">
+健康教育
+</span>
+
+<span class="project-tag">
+教材設計
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- 作品 04 -->
+
+<div class="project-card">
+
+<div class="project-number">
+PROJECT 04
+</div>
+
+<h3>
+🎮 遊戲式學習 GBL
+</h3>
+
+<p>
+
+以登革熱為主題，
+將遊戲元素融入健康教育，
+探索如何提高學習者的參與度。
+
+</p>
+
+<div class="project-tags">
+
+<span class="project-tag">
+GBL
+</span>
+
+<span class="project-tag">
+健康教育
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- 作品 05 -->
+
+<div class="project-card">
+
+<div class="project-number">
+PROJECT 05
+</div>
+
+<h3>
+🪥 AI 智能刷牙鏡
+</h3>
+
+<p>
+
+結合 AI 與智慧鏡面的概念，
+協助使用者檢視刷牙狀況，
+提供個人化改善建議。
+
+</p>
+
+<div class="project-tags">
+
+<span class="project-tag">
+AI
+</span>
+
+<span class="project-tag">
+健康科技
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- 作品 06 -->
+
+<div class="project-card">
+
+<div class="project-number">
+PROJECT 06
+</div>
+
+<h3>
+🌙 熬夜與睡眠教育
+</h3>
+
+<p>
+
+從熬夜、睡眠負債與生活習慣出發，
+設計健康教育內容，
+並透過 Podcast 進行分享。
+
+</p>
+
+<div class="project-tags">
+
+<span class="project-tag">
+健康教育
+</span>
+
+<span class="project-tag">
+Podcast
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     學習歷程
+========================= -->
+
+<section id="journey">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>我的學習歷程</h2>
+
+<p>My Learning Journey</p>
+
+</div>
+
+
+<div class="timeline">
+
+
+<div class="timeline-item">
+
+<span>STEP 01</span>
+
+<h3>
+📚 醫療與健康教育
+</h3>
+
+<p>
+
+接觸醫療、健康教育、
+生物醫學倫理等相關課程，
+累積醫療與健康知識。
+
+</p>
+
+</div>
+
+
+
+<div class="timeline-item">
+
+<span>STEP 02</span>
+
+<h3>
+💻 數位學習
+</h3>
+
+<p>
+
+開始接觸 Moodle、H5P、
+Google Sites 等數位工具，
+學習設計線上學習內容。
+
+</p>
+
+</div>
+
+
+
+<div class="timeline-item">
+
+<span>STEP 03</span>
+
+<h3>
+🎨 專題實作
+</h3>
+
+<p>
+
+透過不同專題，
+將課堂上的理論與實際問題結合，
+累積企劃、設計與實作經驗。
+
+</p>
+
+</div>
+
+
+
+<div class="timeline-item">
+
+<span>STEP 04</span>
+
+<h3>
+✨ 持續探索
+</h3>
+
+<p>
+
+持續嘗試新的工具與創作方式，
+希望找到醫療、教育與設計
+之間更多可能性。
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     交流區
+========================= -->
+
+<section id="community" class="community">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>💬 交流區</h2>
+
+<p>
+Learning & Sharing
+</p>
+
+</div>
+
+
+<div class="community-grid">
+
+
+<div class="community-card">
+
+<div class="community-meta">
+📚 學習分享
+</div>
+
+<h3>
+最近在學什麼？
+</h3>
+
+<p>
+
+最近正在研究數位教材設計，
+也開始嘗試把 H5P 等互動工具
+加入自己的學習作品。
+
+如果你也對數位學習有興趣，
+歡迎一起交流！
+
+</p>
+
+</div>
+
+
+
+<div class="community-card">
+
+<div class="community-meta">
+🎨 作品交流
+</div>
+
+<h3>
+你最喜歡哪個作品？
+</h3>
+
+<p>
+
+這裡會慢慢整理我在學校、
+專題與自主學習中完成的作品。
+
+如果你有任何建議，
+也歡迎在留言板告訴我！
+
+</p>
+
+</div>
+
+
+
+<div class="community-card">
+
+<div class="community-meta">
+💡 想法分享
+</div>
+
+<h3>
+把知識變得更有趣
+</h3>
+
+<p>
+
+我覺得學習不一定只能透過課本，
+如果能加入設計、互動與創意，
+也許可以讓原本比較難懂的內容
+變得更容易接近。
+
+</p>
+
+</div>
+
+
+
+<div class="community-card">
+
+<div class="community-meta">
+🌷 個人小記
+</div>
+
+<h3>
+慢慢累積，也是一種進步
+</h3>
+
+<p>
+
+這個網站也會記錄一些學習過程、
+作品製作心得與生活中的小想法。
+
+希望有一天回頭看的時候，
+可以看見自己一路累積的足跡。
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     留言板
+========================= -->
+
+<section id="guestbook">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>💌 留言板</h2>
+
+<p>
+歡迎留下你想對我說的話
+</p>
+
+</div>
+
+
+<div class="guestbook">
+
+<div class="guestbook-box">
+
+
+<div class="form-group">
+
+<label>
+你的名字
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="請輸入名字"
+/>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+留言內容
+</label>
+
+<textarea
+id="message"
+placeholder="想對湘說什麼呢？"
+></textarea>
+
+</div>
+
+
+<button
+class="submit-btn"
+onclick="addMessage()"
+>
+
+發布留言
+
+</button>
+
+
+<div
+id="messages"
+class="messages"
+>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     聯絡我
+========================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="contact">
+
+<h2>
+📮 聯絡我
+</h2>
+
+<p>
+
+如果你對我的作品、
+學習歷程或數位教材設計有興趣，
+歡迎與我交流！
+
+</p>
+
+
+<div class="contact-links">
+
+<a href="mailto:你的Email@gmail.com">
+📧 Email
+</a>
+
+<a href="#">
+📷 Instagram
+</a>
+
+<a href="#">
+💻 Portfolio
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     Footer
+========================= -->
+
+<footer>
+
+© 2026 湘｜Medical Education Portfolio
+
+<br>
+
+醫療教育 × 數位學習 × 創意設計
+
+</footer>
+
+
+
+<!-- =========================
+     留言板 JavaScript
+========================= -->
+
+<script>
+
+/* HTML 防護 */
+
+function escapeHTML(text) {
+
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* 顯示留言 */
+
+function displayMessages() {
+
+    const messages =
+        JSON.parse(
+            localStorage.getItem("xiangMessages")
+        ) || [];
+
+    const container =
+        document.getElementById("messages");
+
+    container.innerHTML = "";
+
+
+    messages.reverse().forEach(function(item) {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "message";
+
+        div.innerHTML = `
+
+            <div class="message-name">
+                👤 ${escapeHTML(item.name)}
+            </div>
+
+            <div class="message-date">
+                ${item.date}
+            </div>
+
+            <div class="message-text">
+                ${escapeHTML(item.message)}
+            </div>
+
+        `;
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+/* 新增留言 */
+
+function addMessage() {
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const message =
+        document.getElementById("message").value.trim();
+
+
+    if (!name || !message) {
+
+        alert("請輸入名字和留言內容喔！");
+
+        return;
+
+    }
+
+
+    const messages =
+        JSON.parse(
+            localStorage.getItem("xiangMessages")
+        ) || [];
+
+
+    messages.push({
+
+        name: name,
+
+        message: message,
+
+        date: new Date().toLocaleString("zh-TW")
+
+    });
+
+
+    localStorage.setItem(
+        "xiangMessages",
+        JSON.stringify(messages)
+    );
+
+
+    document.getElementById("name").value = "";
+
+    document.getElementById("message").value = "";
+
+
+    displayMessages();
+
+
+    alert("留言成功！💗");
+
+}
+
+
+/* 網頁載入時顯示留言 */
+
+displayMessages();
+
+</script>
+
+
+</body>
+</html>
+```
